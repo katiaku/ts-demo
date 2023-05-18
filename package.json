@@ -4,7 +4,9 @@
   "description": "TS Project Example",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "tsNode": "cd src && ts-node index.ts",
+    "start": "nodemon",
+    "transpilation": "tsc"
   },
   "keywords": [
     "typescript",
