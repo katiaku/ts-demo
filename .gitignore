@@ -1,0 +1,32 @@
+# Dependency directories
+node_modules/
+
+# Output build directories
+dist/
+build/
+
+# Environment configuration
+.env
+
+# TypeScript configuration
+tsconfig.json
+tsconfig.*.json
+
+# Editor directories and files
+.vscode/
+.idea/
+*.sublime-*
+
+# Compiled JavaScript files
+*.js
+
+# Source maps
+*.js.map
+
+# Package lock files
+package-lock.json
+yarn.lock
+
+# Miscellaneous
+.DS_Store
+Thumbs.db
