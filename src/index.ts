@@ -187,3 +187,202 @@ do {
     task1.urgency++;
     task1.state = State.Completed;
 } while (task1.state !== State.Completed);
+
+// Functions
+
+/**
+ * Function that shows a personal greeting in the console
+ */
+function hello() {
+    let name = "Ann";
+    console.log(`Hello, ${name}!`);
+}
+
+hello();
+
+/**
+ * Function that shows a personal greeting in the console
+ * @param name Person's name
+ */
+function hello2(name: string) {
+    console.log(`Hello, ${name}!`);
+}
+
+hello2("Kate");
+
+/**
+ * Function that shows a personal farewell
+ * @param name 
+ */
+function bye(name: string = "Pete") {
+    console.log(`Bye, ${name}!`);
+}
+
+bye(); // Bye, Pete!
+bye("Joe"); // Bye, Joe!
+
+/**
+ * Function that shows a personal farewell
+ * @param name (Optional)
+ */
+function byeOptional(name?: string) { // name: string | undefined
+    if(name) {
+        console.log(`Bye, ${name}!`);
+    } else {
+        console.log("Bye!");
+    }
+}
+
+byeOptional(); // "Bye!"
+byeOptional("Sam"); // "Bye, Sam!"
+
+function variousParams(firstname: string, lastname?: string, age: number = 19) {
+    if(lastname) {
+        console.log(`${firstname} ${lastname} is ${age} years old.`);
+    } else {
+        console.log(`${firstname} is ${age} years old.`);
+    }
+
+    variousParams("John"); // John is 18 years old.
+    variousParams("John", "Doe"); // John Doe is 18 years old.
+    variousParams("John", undefined, 30) // John is 18 years old.
+    variousParams("John", "Doe", 30) // John Doe is 30 years old.
+}
+
+function differentTypes(a: string | number) {
+    if(typeof(a) === 'string') {
+        console.log("A is a string")
+    } else if(typeof(a) === 'number') {
+        console.log("A is a number")
+    } else {
+        console.log("A is not a string nor a number");
+        throw Error("A is not a string nor a number")
+    }
+}
+
+differentTypes("Hello");
+differentTypes(3);
+
+/**
+ * 
+ * @param firstname Firstname
+ * @param lastname Lastname
+ * @returns Fullname
+ */
+function returnExample(firstname: string, lastname: string): string {
+    return `${firstname} ${lastname}`;
+}
+
+const fullname = returnExample("John", "Doe");
+
+console.log(fullname);
+console.log(returnExample("Ann", "Doe"));
+
+/**
+ * 
+ * @param firstnames is a list of strings
+ */
+function multiparams(...firstnames: string[]): void {
+    firstnames.forEach((firstname) = {
+        console.log(firstname)
+    });
+}
+
+multiparams("John");
+multiparams("John", "Ann", "Sam", "Joe");
+
+const list = ["Nick", "Jane"];
+multiparams(...list);
+
+function paramsList(...firstnames: string[]){
+    firstnames.forEach((firstname) = {
+        console.log(firstname)
+    });
+}
+
+paramsList(list);
+
+// Arrow Functions
+type Employee = {
+    firstname: string,
+    lastname: string,
+    age: number
+}
+
+let employee: Employee = {
+    firstname: "Jill",
+    lastname: "Brown",
+    age: 30
+}
+
+const showEmployee = (employee: Employee): string => `${employee.firstname} has ${employee.age} years`
+
+showEmployee(employee);
+
+const employeeData = (employee: Employee): string => {
+    if(employee.age > 70) {
+        return `The employee ${employee.firstname} is going to retire`
+    } else {
+        return `The employee ${employee.firstname} is not going to retire yet`
+    }
+}
+
+const getSalary = (employee: Employee, getMoney: () => void) => {
+    if(employee.age > 70) {
+        return
+    } else {
+        getMoney() // callback
+    }
+}
+
+const payEmployee = (employee: Employee) => {
+    console.log(`The employee\'s receives the salary`);
+}
+
+getSalary(employee, () => 'Pay the employee');
+
+// Async Functions
+function asyncExample(): Promise<string> {
+    await console.log("Task to complete before following the list of nstructions")
+    console.log("The task is completed")
+    return "Completed"
+}
+
+asyncExample().then((response) => {
+    console.log("Response", response);
+}).catch((error) => {
+    console.log("Error", error)
+}).finally(() => "Finished");
+
+// Generators
+function* generatorExample() {
+    // yield -> to create values
+    let index = 0;
+    while(index < 5) {
+        yield index++;
+    }
+}
+
+let generator = generatorExample();
+console.log(generator.next().value)
+
+// Worker
+function* watcher(value: number) {
+    yield value;
+    yield* worker(value);
+    yield value + 4;
+}
+
+function* worker(value: number) {
+    yield value + 1;
+    yield value + 2;
+    yield value + 3;
+}
+
+let generatorSaga = watcher(0);
+
+console.log(generatorSaga.next().value); // 0 (watcher)
+console.log(generatorSaga.next().value); // 1 (worker)
+console.log(generatorSaga.next().value); // 2 (worker)
+console.log(generatorSaga.next().value); // 3 (worker)
+console.log(generatorSaga.next().value); // 4 (watcher)
