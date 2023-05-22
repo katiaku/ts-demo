@@ -1,3 +1,5 @@
+import { deleteCookie, setCookie } from 'cookies-utils';
+
 console.log("Hello TypeScript");
 
 // Variable Declaration
@@ -395,3 +397,25 @@ function showError(error: string | number): void {
 // function showError(errorNumber: number): void {
 //     console.log("There is an error: ", errorNumber);
 // }
+
+// Data Persistence
+// 1. LocalStorage, SessionStorage
+// function set(): void {
+//     localStorage.set("nombre", "John");
+// }
+
+// function get(): void {
+//     let nombre = localStorage.get("nombre");
+// }
+
+// 2. Cookies
+const cookieOptions = {
+    name: "user", // string,
+    value: "John", // string,
+    expires: new Date(2099, 10, 1), // optional Date,
+    path: "/", // optional string,
+};
+
+setCookie(cookieOptions);
+
+deleteCookie("user");
