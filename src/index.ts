@@ -1,4 +1,4 @@
-import { deleteCookie, setCookie } from 'cookies-utils';
+import { deleteAllCookies, deleteCookie, getCookieValue, setCookie } from 'cookies-utils';
 
 console.log("Hello TypeScript");
 
@@ -418,4 +418,31 @@ const cookieOptions = {
 
 setCookie(cookieOptions);
 
+let cookieData = getCookieValue("user");
+
 deleteCookie("user");
+
+deleteAllCookies();
+
+// Events
+class Timer {
+    public finish?: (time: number) => void;
+    public start(): void {
+        setTimeout(() => {
+            if(!this.finish) return;
+            this.finish(Date.now());
+        }, 10000)
+    }
+}
+
+const myTimer: Timer = new Timer();
+
+myTimer.finish = (time: number) => {
+    console.log("The event is finished: ", time)
+}
+
+myTimer.start();
+
+// setInterval(() => console.log("Tic"), 1000);
+
+delete myTimer.finish;
