@@ -386,3 +386,12 @@ console.log(generatorSaga.next().value); // 1 (worker)
 console.log(generatorSaga.next().value); // 2 (worker)
 console.log(generatorSaga.next().value); // 3 (worker)
 console.log(generatorSaga.next().value); // 4 (watcher)
+
+// Function Overloading
+function showError(error: string): void {
+    console.log("There is an error: ", error);
+}
+
+function showError(errorNumber: number): void {
+    console.log("There is an error: ", errorNumber);
+}
