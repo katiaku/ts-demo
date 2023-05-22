@@ -1,4 +1,7 @@
 import { deleteAllCookies, deleteCookie, getCookieValue, setCookie } from 'cookies-utils';
+import { Subject } from './models/Subject';
+import { Student } from './models/Student';
+import { LIST_SUBJECTS } from './mock/subjects.mock';
 
 console.log("Hello TypeScript");
 
@@ -446,3 +449,25 @@ myTimer.start();
 // setInterval(() => console.log("Tic"), 1000);
 
 delete myTimer.finish;
+
+// Classes
+// const typeScript: Subject = new Subject("TypeScript", 15);
+// const javaScript: Subject = new Subject("TypeScript", 20);
+// const listSubjects: Subject[] = [];
+// listSubjects.push(typeScript, javaScript);
+
+// MOCK
+const listSubjects: Subject[] = LIST_SUBJECTS;
+
+const john: Student = new Student("John", listSubjects, "Doe");
+
+console.log(`${john.firstname} studies: `);
+john.subjects.forEach((subject: Subject) => {
+    console.log(`- ${subject.name} (${subject.hours} hours)`);
+})
+
+const angular: Subject = new Subject("Angular", 40);
+
+john.subjects.push(angular);
+
+john.hoursStudied;
