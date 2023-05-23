@@ -8,7 +8,7 @@ import { Program } from './models/Program';
 
 console.log("Hello TypeScript");
 
-// Variable Declaration
+// 1. Variable Declaration
 var name: string = "John";
 let email = "johndoe@group.com";
 
@@ -114,7 +114,7 @@ let car: Product = {
     year: 2010
 }
 
-// Conditionals
+// 2. Conditionals
 // Ternary Operator
 console.log(car.year < 2010 ? `Car: ${car.name} (old)` : `Car: ${car.name} (new)`);
 
@@ -196,7 +196,7 @@ do {
     task1.state = State.Completed;
 } while (task1.state !== State.Completed);
 
-// Functions
+// 3. Functions
 
 /**
  * Function that shows a personal greeting in the console
@@ -404,8 +404,8 @@ function showError(error: string | number): void {
 //     console.log("There is an error: ", errorNumber);
 // }
 
-// Data Persistence
-// 1. LocalStorage, SessionStorage
+// 4. Data Persistence
+// LocalStorage, SessionStorage
 // function set(): void {
 //     localStorage.set("nombre", "John");
 // }
@@ -414,7 +414,7 @@ function showError(error: string | number): void {
 //     let nombre = localStorage.get("nombre");
 // }
 
-// 2. Cookies
+// Cookies
 const cookieOptions = {
     name: "user", // string,
     value: "John", // string,
@@ -430,7 +430,7 @@ deleteCookie("user");
 
 deleteAllCookies();
 
-// Events
+// 5. Events
 class Timer {
     public finish?: (time: number) => void;
     public start(): void {
@@ -453,7 +453,7 @@ myTimer.start();
 
 delete myTimer.finish;
 
-// Classes
+// 6. Classes
 // const typeScript: Subject = new Subject("TypeScript", 15);
 // const javaScript: Subject = new Subject("TypeScript", 20);
 // const listSubjects: Subject[] = [];
@@ -486,7 +486,7 @@ if(john instanceof Student) {
     console.log("John is a student")
 }
 
-// Inheritance and Polymorphism
+// 7. Inheritance and Polymorphism
 let teamMember1 = new TeamMember("John", "Doe", 30, 2000);
 let teamMember2 = new TeamMember("Sam", "Smith", 42, 2400);
 let teamMember3 = new TeamMember("Ann", "Cole", 28, 2100);
@@ -506,7 +506,7 @@ director.teamMembers.forEach((TeamMember: TeamMember) => {
     TeamMember.greet();
 });
 
-// Use of Interfaces
+// 8. Interfaces
 // Object
 let program: ITask = {
     title: 'Program in TypeScript',
@@ -524,3 +524,5 @@ console.log(program.summary());
 let programTS = new Program("TypeScript", "TypeScript Task", false, Level.Blocking);
 
 console.log(programTS.summary());
+
+// 9. Decorators
