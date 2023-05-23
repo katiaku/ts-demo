@@ -290,7 +290,7 @@ console.log(returnExample("Ann", "Doe"));
  * 
  * @param firstnames is a list of strings
  */
-function multiparams(...firstnames: string[]): void {
+/* function multiparams(...firstnames: string[]): void {
     firstnames.forEach((firstname) = {
         console.log(firstname)
     });
@@ -306,9 +306,9 @@ function paramsList(...firstnames: string[]){
     firstnames.forEach((firstname) = {
         console.log(firstname)
     });
-}
+} */
 
-paramsList(list);
+// paramsList(list);
 
 // - Arrow Functions
 type Employee = {
@@ -350,8 +350,8 @@ const payEmployee = (employee: Employee) => {
 getSalary(employee, () => 'Pay the employee');
 
 // - Async Functions
-function asyncExample(): Promise<string> {
-    await console.log("Task to complete before following the list of nstructions")
+/* function asyncExample(): Promise<string> {
+    await console.log("Task to complete before following the list of instructions")
     console.log("The task is completed")
     return "Completed"
 }
@@ -360,7 +360,7 @@ asyncExample().then((response) => {
     console.log("Response", response);
 }).catch((error) => {
     console.log("Error", error)
-}).finally(() => "Finished");
+}).finally(() => "Finished"); */
 
 // - Generators
 function* generatorExample() {
@@ -525,7 +525,7 @@ let programTS = new Program("TypeScript", "TypeScript Task", false, Level.Blocki
 
 console.log(programTS.summary());
 
-// 9. Decorators
+/* 9. Decorators
 // - Class
 // - Params
 // - Methods
@@ -589,3 +589,4 @@ if(myFirstSingleton === mySecondSingleton) {
 } else {
     console.log("Failed, variables contain different instances")
 }
+*/
