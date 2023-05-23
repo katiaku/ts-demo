@@ -2,7 +2,7 @@ import { deleteAllCookies, deleteCookie, getCookieValue, setCookie } from 'cooki
 import { Subject } from './models/Subject';
 import { Student } from './models/Student';
 import { LIST_SUBJECTS } from './mock/subjects.mock';
-import { Director, Employee } from './models/Person';
+import { Director, TeamMember } from './models/Person';
 
 console.log("Hello TypeScript");
 
@@ -485,21 +485,21 @@ if(john instanceof Student) {
 }
 
 // Inheritance and Polymorphism
-let employee1 = new Employee("John", "Doe", 30, 2000);
-let employee2 = new Employee("Sam", "Smith", 42, 2400);
-let employee3 = new Employee("Ann", "Cole", 28, 2100);
+let teamMember1 = new TeamMember("John", "Doe", 30, 2000);
+let teamMember2 = new TeamMember("Sam", "Smith", 42, 2400);
+let teamMember3 = new TeamMember("Ann", "Cole", 28, 2100);
 
 let director = new Director("Paul", "Green", 50);
 
-director.employees.push(employee1, employee2, employee3);
+director.teamMembers.push(teamMember1, teamMember2, teamMember3);
 
-director.employees.forEach((employee: Employee) => {
-    console.log(employee.firstname);
+director.teamMembers.forEach((TeamMember: TeamMember) => {
+    console.log(TeamMember.firstname);
 });
 
-employee1.greet();
+teamMember1.greet();
 director.greet();
 
-director.employees.forEach((employee: Employee) => {
-    employee.greet();
+director.teamMembers.forEach((TeamMember: TeamMember) => {
+    TeamMember.greet();
 });

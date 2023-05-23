@@ -14,7 +14,7 @@ export class Person {
     }
 }
 
-export class Employee extends Person {
+export class TeamMember extends Person {
     salary: number;
 
     constructor(firstname: string, lastname: string, age: number, salary: number) {
@@ -29,7 +29,7 @@ export class Employee extends Person {
 }
 
 export class Director extends Person {
-    employees: Employee[] = [];
+    teamMembers: TeamMember[] = [];
 
     constructor(firstname: string, lastname: string, age: number) {
         super(firstname, lastname, age)
