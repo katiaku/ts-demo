@@ -577,3 +577,15 @@ class DecoratorMethodTest {
 }
 
 new DecoratorMethodTest().test('hello', false);
+
+// Creational Design Patterns
+const myFirstSingleton = Singleton.getInstance();
+const mySecondSingleton = Singleton.getInstance();
+
+if(myFirstSingleton === mySecondSingleton) {
+    console.log("Correct, variables contain the same instance");
+    myFirstSingleton.showInConsole();
+    mySecondSingleton.showInConsole();
+} else {
+    console.log("Failed, variables contain different instances")
+}
