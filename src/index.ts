@@ -3,6 +3,8 @@ import { Subject } from './models/Subject';
 import { Student } from './models/Student';
 import { LIST_SUBJECTS } from './mock/subjects.mock';
 import { Director, TeamMember } from './models/Person';
+import { ITask, Level } from './models/interfaces/ITask';
+import { Program } from './models/Program';
 
 console.log("Hello TypeScript");
 
@@ -503,3 +505,22 @@ director.greet();
 director.teamMembers.forEach((TeamMember: TeamMember) => {
     TeamMember.greet();
 });
+
+// Use of Interfaces
+// Object
+let program: ITask = {
+    title: 'Program in TypeScript',
+    description: 'Practice Katas to learn TypeScript',
+    completed: false,
+    urgency: Level.Urgent,
+    summary: function (): string {
+        return `${title} - ${this.completed} - Level: ${this.urgency}`;
+    }
+}
+
+console.log(program.summary());
+
+// Class
+let programTS = new Program("TypeScript", "TypeScript Task", false, Level.Blocking);
+
+console.log(programTS.summary());
