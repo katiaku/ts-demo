@@ -24,15 +24,15 @@ const PI: number = 3.1416;
 
 var error: boolean = false;
 
-// Multiple Variable Declaration
+// - Multiple Variable Declaration
 let a: string, b:boolean, c:number;
 a = "TypeScript";
 b = true;
 c = 8.9;
 
-// BuiltIn Types: number, string, boolean, void, null, undefined
+// - BuiltIn Types: number, string, boolean, void, null, undefined
 
-// Complex Types
+// - Complex Types
 let taskList: string[] = ["Task 1", "Task 2"];
 
 let values: (string | number | boolean)[] = [false, "Hello", true, 56];
@@ -52,7 +52,7 @@ enum Position {
 let taskState: State = State.Completed;
 let marathonResult = Position.Second;
 
-// Interfaces
+// - Interfaces
 interface Task {
     name: string,
     state: State,
@@ -67,29 +67,29 @@ let task1: Task = {
 
 console.log(`Task: ${task1.name}`);
 
-// Multiple Variable Assignation
+// - Multiple Variable Assignation
 let myTask = {
     title: "My Task",
     state: State.Completed,
     urgency: 1
 }
 
-// 1 by 1
+// - 1 by 1
 let myTitle = myTask.title;
 let myState = myTask.state;
 let myUrgency = myTask.urgency;
 
 // Spread
-// Variable Assignation
+// - Variable Assignation
 let {title, state, urgency} = myTask;
 
-// In Lists
+// - In Lists
 let shoppingListMonday: string[] = ["Milk", "Potatoes"];
 let shoppingListTuesday: string[] = [...shoppingListMonday, "Bread", "Eggs"];
 let shoppingListWednesday: string[] = ["Meat", "Fish"];
 let shoppingListWeek = [...shoppingListMonday, ...shoppingListWednesday];
 
-// In Objects
+// - In Objects
 let stateApp = {
     user: "admin",
     session: 3,
@@ -115,10 +115,10 @@ let car: Product = {
 }
 
 // 2. Conditionals
-// Ternary Operator
+// - Ternary Operator
 console.log(car.year < 2010 ? `Car: ${car.name} (old)` : `Car: ${car.name} (new)`);
 
-// If - else
+// - If - else
 if(error) {
     console.log("There is an error");
 } else {
@@ -133,7 +133,7 @@ if(car.year < 2010) {
     console.log(`Car: ${car.name} (new)`);
 }
 
-// Switch
+// - Switch
 switch (task1.state) {
     case State.Completed:
         console.log("The task is completed")
@@ -148,7 +148,7 @@ switch (task1.state) {
         break;
 }
 
-// Loops
+// - Loops
 let newTaskList: Task[] = [
     {
         name: "Task 1",
@@ -167,20 +167,20 @@ let newTaskList: Task[] = [
     }
 ];
 
-// For
+// - For
 for (let index = 0; index < newTaskList.length; index++) {
     const task = newTaskList[index];
     console.log(`${index} - ${task.name}`);
 };
 
-// .forEach()
+// - .forEach()
 newTaskList.forEach(
     (task: Task, index: number) => {
         console.log(`${index} - ${task.name}`);
     }
 );
 
-// While
+// - While
 while (task1.state !== State.Completed) {
     if(task1.urgency == 20) {
         task1.state = State.Completed;
@@ -190,7 +190,7 @@ while (task1.state !== State.Completed) {
     }
 }
 
-// Do While
+// - Do While
 do {
     task1.urgency++;
     task1.state = State.Completed;
@@ -310,7 +310,7 @@ function paramsList(...firstnames: string[]){
 
 paramsList(list);
 
-// Arrow Functions
+// - Arrow Functions
 type Employee = {
     firstname: string,
     lastname: string,
@@ -349,7 +349,7 @@ const payEmployee = (employee: Employee) => {
 
 getSalary(employee, () => 'Pay the employee');
 
-// Async Functions
+// - Async Functions
 function asyncExample(): Promise<string> {
     await console.log("Task to complete before following the list of nstructions")
     console.log("The task is completed")
@@ -362,7 +362,7 @@ asyncExample().then((response) => {
     console.log("Error", error)
 }).finally(() => "Finished");
 
-// Generators
+// - Generators
 function* generatorExample() {
     // yield -> to create values
     let index = 0;
@@ -374,7 +374,7 @@ function* generatorExample() {
 let generator = generatorExample();
 console.log(generator.next().value)
 
-// Worker
+// - Worker
 function* watcher(value: number) {
     yield value;
     yield* worker(value);
@@ -405,7 +405,7 @@ function showError(error: string | number): void {
 // }
 
 // 4. Data Persistence
-// LocalStorage, SessionStorage
+// - LocalStorage, SessionStorage
 // function set(): void {
 //     localStorage.set("nombre", "John");
 // }
@@ -414,7 +414,7 @@ function showError(error: string | number): void {
 //     let nombre = localStorage.get("nombre");
 // }
 
-// Cookies
+// - Cookies
 const cookieOptions = {
     name: "user", // string,
     value: "John", // string,
@@ -507,7 +507,7 @@ director.teamMembers.forEach((TeamMember: TeamMember) => {
 });
 
 // 8. Interfaces
-// Object
+// - Object
 let program: ITask = {
     title: 'Program in TypeScript',
     description: 'Practice Katas to learn TypeScript',
@@ -520,9 +520,60 @@ let program: ITask = {
 
 console.log(program.summary());
 
-// Class
+// - Class
 let programTS = new Program("TypeScript", "TypeScript Task", false, Level.Blocking);
 
 console.log(programTS.summary());
 
 // 9. Decorators
+// - Class
+// - Params
+// - Methods
+// - Properties
+
+function Override(label: string) {
+    return function(target: any, key: string) {
+        Object.defineProperty(target, key, {
+            configurable: false,
+            get: () => label
+        })
+    }
+}
+
+class DecoratorExample {
+    @Override("Example")
+    name: string = "John"
+}
+
+let example = new DecoratorExample();
+
+console.log(example.name) // always returns "Example"
+
+function ReadOnly(target: any, key: string) {
+    Object.defineProperty(target, key, {
+        writable: false
+    })
+}
+
+class ReadOnlyExample {
+    @ReadOnly
+    name: string = '';
+}
+
+let example2 = new ReadOnlyExample();
+
+example2.name = "John";
+
+console.log(example2.name); // Undefined (the value is read only)
+
+function showPosition(target: any, propertyKey: string, parameterIndex: number){
+    console.log("Position", parameterIndex);
+}
+
+class DecoratorMethodTest {
+    test(a: string, @showPosition b: boolean) {
+        console.log(b);
+    }
+}
+
+new DecoratorMethodTest().test('hello', false);
