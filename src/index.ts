@@ -114,6 +114,19 @@ let car: Product = {
     year: 2010
 }
 
+// Union Types
+type cardNumber = {
+    cardNum: number
+}
+
+type cardDate = {
+    cardDate: string
+}
+
+type cardDetails = cardNumber & cardDate & {
+    cvv: number
+}
+
 // Tuples
 // const person: (string | number)[] = [1, "hc"];
 let tPerson: [string, number, boolean];
