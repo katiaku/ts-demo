@@ -114,6 +114,13 @@ let car: Product = {
     year: 2010
 }
 
+// Tuples
+// const person: (string | number)[] = [1, "hc"];
+let tPerson: [string, number, boolean];
+tPerson = ["hc", 1223, true];
+
+let rgb: [number, number, number] = [255, 123, 112];
+
 // 2. Conditionals
 // - Ternary Operator
 console.log(car.year < 2010 ? `Car: ${car.name} (old)` : `Car: ${car.name} (new)`);
