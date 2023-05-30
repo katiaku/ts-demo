@@ -37,6 +37,16 @@ let taskList: string[] = ["Task 1", "Task 2"];
 
 let values: (string | number | boolean)[] = [false, "Hello", true, 56];
 
+// Enums
+enum SeatChoice {
+    AISLE,
+    MIDDLE,
+    WINDOW,
+    FOURTH
+}
+
+const hcSeat = SeatChoice.AISLE;
+
 enum State {
     "Completed" = "C",
     "Not Completed" = "NC",
@@ -53,6 +63,7 @@ let taskState: State = State.Completed;
 let marathonResult = Position.Second;
 
 // - Interfaces
+// loose form of class
 interface Task {
     name: string,
     state: State,
@@ -66,6 +77,31 @@ let task1: Task = {
 }
 
 console.log(`Task: ${task1.name}`);
+
+interface iUser {
+    readonly dbId: number
+    email: string,
+    userId: number,
+    googleid?: string
+    startTrail(): string
+    getCoupon(couponName: string, value: number): number
+}
+
+// Interface Reopening
+interface iUser {
+    githubToken: string;
+}
+
+const pete: iUser = {dbId: 22, email: "p@p.com",
+userId: 2211,
+githubToken: "github",
+startTrail: () => {
+    return "trail started"
+},
+getCoupon: (name: "p10", off: 10) => {
+    return 10
+}
+}
 
 // - Multiple Variable Assignation
 let myTask = {
@@ -133,16 +169,6 @@ let tPerson: [string, number, boolean];
 tPerson = ["hc", 1223, true];
 
 let rgb: [number, number, number] = [255, 123, 112];
-
-// Enums
-enum SeatChoice {
-    AISLE,
-    MIDDLE,
-    WINDOW,
-    FOURTH
-}
-
-const hcSeat = SeatChoice.AISLE;
 
 // 2. Conditionals
 // - Ternary Operator
