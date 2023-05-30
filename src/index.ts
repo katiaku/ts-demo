@@ -134,6 +134,16 @@ tPerson = ["hc", 1223, true];
 
 let rgb: [number, number, number] = [255, 123, 112];
 
+// Enums
+enum SeatChoice {
+    AISLE,
+    MIDDLE,
+    WINDOW,
+    FOURTH
+}
+
+const hcSeat = SeatChoice.AISLE;
+
 // 2. Conditionals
 // - Ternary Operator
 console.log(car.year < 2010 ? `Car: ${car.name} (old)` : `Car: ${car.name} (new)`);
