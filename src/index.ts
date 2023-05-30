@@ -103,6 +103,11 @@ getCoupon: (name: "p10", off: 10) => {
 }
 }
 
+// Interface Inheritance
+interface Admin extends iUser {
+    role: "admin" | "ta" | "learner"
+}
+
 // - Multiple Variable Assignation
 let myTask = {
     title: "My Task",
