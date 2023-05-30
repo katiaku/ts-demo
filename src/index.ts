@@ -115,6 +115,43 @@ let myTask = {
     urgency: 1
 }
 
+// Classes
+class CUser {
+    email: string
+    name: string
+    constructor(email: string, name: string) {
+        this.email = email;
+        this.name = name
+    }
+    get getEmail(): string {
+        return `email: ${this.email}`
+    }
+}
+
+/*
+set courseCount(courseNum) { // no void or other datatype!
+    if (courseNum <= 1) {
+        throw new Error("Course count should be more than 1")
+    }
+}
+*/
+
+const lane = new CUser("lane@l.com", "lane");
+
+interface TakePhoto {
+    cameraMode: string
+    filter: string
+    burst: number
+}
+
+class Instagram implements TakePhoto {
+    constructor(
+        public cameraMode: string,
+        public filter: string,
+        public burst: number
+    ){}
+}
+
 // - 1 by 1
 let myTitle = myTask.title;
 let myState = myTask.state;
