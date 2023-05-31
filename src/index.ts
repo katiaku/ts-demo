@@ -239,6 +239,18 @@ interface Bottle {
 
 // identityFour<Bottle>({})
 
+function getSearchProducts<T>(products: T[]): T {
+    // do some database operations
+    const myIndex = 3
+    return products[myIndex]
+}
+
+const getMoreSearchProducts = <T,>(products: T[]): T => {
+    // do some database operations
+    const myIndex = 4
+    return products[myIndex]
+}
+
 // 2. Conditionals
 // - Ternary Operator
 console.log(car.year < 2010 ? `Car: ${car.name} (old)` : `Car: ${car.name} (new)`);
