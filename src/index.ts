@@ -212,6 +212,33 @@ tPerson = ["hc", 1223, true];
 
 let rgb: [number, number, number] = [255, 123, 112];
 
+// Generics
+const score: Array<number> = [];
+const names: Array<string> = [];
+
+function identityOne(val: boolean | number): boolean | number {
+    return val
+}
+
+function identityTwo(val: any): any {
+    return val
+}
+
+function identityThree<Type>(val: Type): Type {
+    return val
+}
+
+function identityFour<T>(val: T): T {
+    return val
+}
+
+interface Bottle {
+    brand: string,
+    type: number
+}
+
+// identityFour<Bottle>({})
+
 // 2. Conditionals
 // - Ternary Operator
 console.log(car.year < 2010 ? `Car: ${car.name} (old)` : `Car: ${car.name} (new)`);
