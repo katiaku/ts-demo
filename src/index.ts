@@ -285,6 +285,51 @@ class Sellable<T> {
     }
 }
 
+// Type Narrowing
+function detectType(val: number | string) {
+    if (typeof val === "string") {
+        return val.toLowerCase()
+    }
+    return val + 3
+}
+
+function provideId(id: string | null) {
+    if(!id) {
+        console.log("Please provide ID");
+        return
+    }
+    id.toLowerCase()
+}
+
+function printAll(strs: string | string[] | null) {
+    if (strs) {
+        if (typeof strs === "object") {
+            for (const s of strs) {
+                console.log(s);
+            }
+        } else if(typeof strs === "string") {
+            console.log(strs);
+        }
+    }
+}
+
+interface Teacher {
+    name: string,
+    email: string
+}
+
+interface Director {
+    name: string,
+    email: string,
+    isDirector: boolean
+}
+
+function isDirectorAccount(account: Teacher | Director) {
+    if ("isDirector" in account) {
+        return account.isDirector
+    }
+}
+
 // 2. Conditionals
 // - Ternary Operator
 console.log(car.year < 2010 ? `Car: ${car.name} (old)` : `Car: ${car.name} (new)`);
